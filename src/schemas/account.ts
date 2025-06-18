@@ -7,9 +7,6 @@ export const AccountSchema = z.object({
   apellido: z.string(),
   email: z.string().email(),
   edad: z.number().nullable(),
-  peso: z.number().nullable(),
-  altura: z.number().nullable(),
-  matricula: z.string().nullable(),
 })
 
 export type AccountDTO = z.infer<typeof AccountSchema>
@@ -18,9 +15,7 @@ export const ChangeAccountSchema = z.object({
   nombre: z.string(),
   apellido: z.string(),
   email: z.string().email(),
-  edad: z.number().nullable().optional(),
-  peso: z.number().nullable().optional(),
-  altura: z.number().nullable().optional(),
+  edad: z.number().nullable(),
 })
 
 export type ChangeAccountDTO = z.infer<typeof ChangeAccountSchema>
@@ -39,10 +34,3 @@ export const changeExternalPasswordBodySchema = z.object({
 })
 
 export type changeExternalPasswordBodyDTO = z.infer<typeof changeExternalPasswordBodySchema>
-
-export const PreferencesSchema = z.object({
-  atletaId: z.number(),
-  planDietaActual: z.number().nullable().optional(),
-})
-
-export type PreferencesDTO = z.infer<typeof PreferencesSchema>
