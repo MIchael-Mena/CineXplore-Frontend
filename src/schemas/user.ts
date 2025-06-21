@@ -1,21 +1,25 @@
-import { create } from 'domain'
+import { useCreateActor } from '@/hooks/useActor'
 import { z } from 'zod'
 
-const UserMovieLikeSchema = z.object({
+export const UserMovieLikeSchema = z.object({
   movieId: z.number(),
   coverMovieUrl: z.string().nullable(),
   movieTitle: z.string(),
   likedAt: z.date()
 })
 
-const UserMovieRatingSchema = z.object({
+export type UserMovieLike = z.infer<typeof UserMovieLikeSchema>
+
+export const UserMovieRatingSchema = z.object({
   movieId: z.number(),
   movieTitle: z.string(),
   rating: z.number(),
   ratedAt: z.date()
 })
 
-const UserMovieCommentSchema = z.object({
+export type UserMovieRating = z.infer<typeof UserMovieRatingSchema>
+
+export const UserMovieCommentSchema = z.object({
   movieId: z.number(),
   movieTitle: z.string(),
   commentText: z.string(),
@@ -24,6 +28,8 @@ const UserMovieCommentSchema = z.object({
   sentimentScore: z.number().nullable(),
   aiTopics: z.string()
 })
+
+export type UserMovieComment = z.infer<typeof UserMovieCommentSchema>
 
 export const UserSchema = z.object({
   username: z.string(),

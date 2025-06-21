@@ -3,13 +3,13 @@ import { KEYS } from '@api/keys'
 import { UserDTO, UserSchema, ChangeUserDTO, GetUsersResponse, GetUsersResponseSchema } from '@/schemas/user'
 import { z } from 'zod'
 
-const request = '/api/users'
+const userRequest = '/api/users'
 
 export const getUserById = (id: number) : Query<UserDTO> => ({
   key: KEYS.getUsers,
   authenticated: true,
   method: 'GET',
-  endpoint: request + `/${id}`,
+  endpoint: userRequest + `/${id}`,
   validateResponse: UserSchema,
   parseResponse: response => response,
 })
@@ -18,7 +18,7 @@ export const getUsers: Query<GetUsersResponse, UserDTO[]> = {
   key: KEYS.getUsers,
   authenticated: true,
   method: 'GET',
-  endpoint: request,
+  endpoint: userRequest,
   validateResponse: GetUsersResponseSchema,
   parseResponse: response => response,
 }
@@ -27,7 +27,7 @@ export const updateUser = (id: number) : Mutation<UserDTO, UserDTO, ChangeUserDT
   key: KEYS.getUsers,
   authenticated: true,
   method: 'PATCH',
-  endpoint: request + `/${id}`,
+  endpoint: userRequest + `/${id}`,
   validateResponse: UserSchema,
   parseResponse: response => response,
 })
@@ -36,7 +36,7 @@ export const deleteUser = (id: number) : Mutation<void> => ({
   key: KEYS.getUsers,
   authenticated: true,
   method: 'DELETE',
-  endpoint: request + `/${id}`,
+  endpoint: userRequest + `/${id}`,
   validateResponse: z.void(),
   parseResponse: response => response,
 })

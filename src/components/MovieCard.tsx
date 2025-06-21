@@ -1,5 +1,5 @@
 import { Movie } from "@/schemas/movies";
-import { Label, ImageNotSupported } from "@mui/icons-material";
+import { ImageNotSupported } from "@mui/icons-material";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 export default function MovieCard(movie: Movie) {

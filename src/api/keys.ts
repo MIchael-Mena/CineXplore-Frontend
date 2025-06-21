@@ -4,5 +4,8 @@ export const KEYS = {
   getGenres: ['getGenres'],
   getDirectors: ['getDirectors'],
   getActors: ['getActors'],
+  getComments: ['getComments'],
+  getLikes: ['getLikes'],
+  getRatings: ['getRattings'],
   login: ['login']
 }
