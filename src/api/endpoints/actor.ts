@@ -3,7 +3,7 @@ import { Mutation, Query } from "../types"
 import { KEYS } from "../keys"
 import z from "zod"
 
-const request = '/api/Actors'
+const request = '/api/actors'
 
 export const getActors: Query<GetActorsResponse, Actor[]> = {
   key: KEYS.getActors,
