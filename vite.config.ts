@@ -17,6 +17,7 @@ export default defineConfig({
       '@schemas': path.resolve(__dirname, 'src/schemas'),
       '@screens': path.resolve(__dirname, 'src/screens'),
       '@theme': path.resolve(__dirname, 'src/theme'),
+      '@auth': path.resolve(__dirname, 'src/auth'),
     },
   },
 })

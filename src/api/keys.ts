@@ -1,4 +1,8 @@
 export const KEYS = {
-  getMyAccount: ['getMyAccount'],
-  getMovies : ['getMovies']
+  getUsers: ['getUsers'],
+  getMovies: ['getMovies'],
+  getGenres: ['getGenres'],
+  getDirectors: ['getDirectors'],
+  getActors: ['getActors'],
+  login: ['login']
 }

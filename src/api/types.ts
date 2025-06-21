@@ -7,7 +7,7 @@ type BaseApi<ResponseType, ParsedResponseType> = {
   // La key se utiliza para almacenar en caché la respuesta e invalidarla cuando se llama a la mutation. Si la clave es la misma que una query, la query tambien se invalidara.
   key: string[]
   method: string
-//  authenticated: boolean
+  authenticated: boolean
   endpoint: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params?: any
@@ -20,7 +20,7 @@ type BaseApi<ResponseType, ParsedResponseType> = {
 export type Query<ResponseType, ParsedResponseType = ResponseType> = {
   method: 'GET'
   key: string[]
-//  authenticated: boolean
+  authenticated: boolean
   endpoint: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params?: any

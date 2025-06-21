@@ -13,6 +13,7 @@
       "@schemas/*": ["src/schemas/*"],
       "@screens/*": ["src/screens/*"],
       "@theme/*": ["src/theme/*"],
+      "@auth/*": ["src/auth/*"],
     },
     "strict": true,
     "esModuleInterop": true,
