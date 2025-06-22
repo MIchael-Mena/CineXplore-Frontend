@@ -1,27 +1,28 @@
 import MovieCard from "@/components/MovieCard";
-import { useGetMovies } from "@/hooks/useMovie";
+import { Movie } from "@/schemas/movies";
 import { Box, TextField } from "@mui/material";
 import { useState } from "react";
 
-export default function MovieSection() {
-    const { data: movies, isLoading, isError, error } = useGetMovies()
+interface MoviesSectionProps {
+  width: string
+  movieOptions: Movie[]
+  setSelectedMovie: React.Dispatch<React.SetStateAction<Movie>>
+}
+
+export default function MoviesSection({width, movieOptions, setSelectedMovie} : MoviesSectionProps) {
     const [searchQuery, setSearchQuery] = useState('')
 
-    if (isError) return <div>Error: {error.message}</div>
-    if (isLoading || !movies) return <div>Loading movies...</div>
-    if (movies.length === 0) return <div>There are no available movies.</div>
-
-    const filteredMovies = movies.filter(m => m.title.toLowerCase() == searchQuery.toLowerCase())
+    const filteredMovies = movieOptions.filter(m => m.title.toLowerCase() == searchQuery.toLowerCase())
 
     return (
         <Box
-            width={'50%'}
+            width={width}
             display={'flex'}
             flexDirection={'column'}
         >
             <Box>
                 <TextField
-                    label="Buscar Alimento"
+                    label="Buscar pelicula"
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
                     fullWidth
@@ -33,7 +34,7 @@ export default function MovieSection() {
                 flexDirection={'row'}
             >
                 {filteredMovies.map(m => (
-                    <MovieCard {...m} />
+                    <MovieCard movie={m} onClick={() => setSelectedMovie(m)}/>
                 ))}
             </Box>
         </Box>
