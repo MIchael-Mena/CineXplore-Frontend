@@ -9,6 +9,8 @@ export const UserMovieLikeSchema = z.object({
 })
 
 export type UserMovieLike = z.infer<typeof UserMovieLikeSchema>
+export const GetLikesResponseSchema = z.array(UserMovieLikeSchema)
+export type GetLikesResponse = z.infer<typeof GetLikesResponseSchema>
 
 export const UserMovieRatingSchema = z.object({
   movieId: z.number(),
@@ -18,6 +20,8 @@ export const UserMovieRatingSchema = z.object({
 })
 
 export type UserMovieRating = z.infer<typeof UserMovieRatingSchema>
+export const GetRatingsResponseSchema = z.array(UserMovieRatingSchema)
+export type GetRatingsResponse = z.infer<typeof GetRatingsResponseSchema>
 
 export const UserMovieCommentSchema = z.object({
   movieId: z.number(),
@@ -30,6 +34,8 @@ export const UserMovieCommentSchema = z.object({
 })
 
 export type UserMovieComment = z.infer<typeof UserMovieCommentSchema>
+export const GetCommentsResponseSchema = z.array(UserMovieCommentSchema)
+export type GetCommentsResponse = z.infer<typeof GetCommentsResponseSchema>
 
 export const UserSchema = z.object({
   username: z.string(),

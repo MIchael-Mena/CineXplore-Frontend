@@ -1,38 +1,36 @@
-import { UserMovieComment, UserMovieCommentSchema } from "@/schemas/user"
+import { GetCommentsResponse, GetCommentsResponseSchema, UserMovieComment, UserMovieCommentSchema } from "@/schemas/user"
 import { Mutation, Query } from "../types"
 import { KEYS } from "../keys"
 import z from "zod"
 
 const request =  '/api/comments'
-const likeRequest = '/api/user-movie-likes'
-const ratingRequest = '/api/user-movie-ratings'
 
-export const getCommentsByUser = (userId: number) : Query<UserMovieComment> => ({
+export const getCommentsByUser = (userId: number) : Query<GetCommentsResponse, UserMovieComment[]> => ({
   key: KEYS.getComments,
   authenticated: true,
   method: 'GET',
   endpoint: request + `/user/${userId}`,
-  validateResponse: UserMovieCommentSchema,
+  validateResponse: GetCommentsResponseSchema,
   parseResponse: response => response,
 })
 
-export const getCommentsByMovie = (movieId: number) : Query<UserMovieComment> => ({
+export const getCommentsByMovie = (movieId: number) : Query<GetCommentsResponse, UserMovieComment[]> => ({
   key: KEYS.getComments,
   authenticated: true,
   method: 'GET',
   endpoint: request + `/movie/${movieId}`,
-  validateResponse: UserMovieCommentSchema,
+  validateResponse: GetCommentsResponseSchema,
   parseResponse: response => response,
 })
 
-export const addComment: Mutation<UserMovieComment, UserMovieComment, UserMovieComment> = {
+export const addComment = (userId: number, movieId: number) : Mutation<UserMovieComment, UserMovieComment, string> => ({
   key: KEYS.getComments,
   authenticated: true,
   method: 'POST',
-  endpoint: request,
+  endpoint: request + `?userId=${userId}&movieId=${movieId}`,
   validateResponse: UserMovieCommentSchema,
   parseResponse: response => response,
-}
+})
 
 export const editComment = (id: number) : Mutation<UserMovieComment, UserMovieComment, string> => ({
   key: KEYS.getComments,
