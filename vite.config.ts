@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import path from 'path'
@@ -18,6 +18,7 @@ export default defineConfig({
       '@screens': path.resolve(__dirname, 'src/screens'),
       '@theme': path.resolve(__dirname, 'src/theme'),
       '@auth': path.resolve(__dirname, 'src/auth'),
+      '@layout': path.resolve(__dirname, 'src/layout'),
     },
   },
 })

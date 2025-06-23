@@ -2,18 +2,45 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"],
-      "@environment/*": ["src/environment/*"],
-      "@api/*": ["src/api/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@store/*": ["src/store/*"],
-      "@schemas/*": ["src/schemas/*"],
-      "@screens/*": ["src/screens/*"],
-      "@theme/*": ["src/theme/*"],
-      "@auth/*": ["src/auth/*"],
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@environment/*": [
+        "src/environment/*"
+      ],
+      "@api/*": [
+        "src/api/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@schemas/*": [
+        "src/schemas/*"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@theme/*": [
+        "src/theme/*"
+      ],
+      "@auth/*": [
+        "src/auth/*"
+      ],
+      "@layout/*": [
+        "src/layout/*"
+      ]
     },
     "strict": true,
     "esModuleInterop": true,

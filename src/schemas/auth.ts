@@ -12,7 +12,7 @@ export const NoDataSchema = GoodResponseSchema(z.object({}))
 export type NoDataDTO = z.infer<typeof NoDataSchema>
 
 export interface LoginInput {
-  username: string
+  mail: string
   password: string
 }
 
