@@ -14,7 +14,7 @@ const navItems: NavItems[] = [
   {name: 'MoviesFromUser', path: '/movies'}
 ];
 
-const Login = React.lazy(() => import('../pages/Login'));
+const Login = React.lazy(() => import('../screens/login/LoginForm'));
 
 
 const router = createBrowserRouter([

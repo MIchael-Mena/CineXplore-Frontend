@@ -1,9 +1,8 @@
 import { Box } from '@mui/material';
-import Header from '../modules/core/components/header';
-import Footer from '../modules/core/components/footer';
+import Header from '@components/core/header'
+import Footer from '@components/core/footer'
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { useEffect } from 'react';
-import RouteChangeHandler from '../modules/core/components/route-change-handler';
 // import {useLogin} from "@hooks/useAuth";
 
 const componentSizes = {

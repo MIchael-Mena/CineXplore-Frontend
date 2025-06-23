@@ -3,7 +3,7 @@ import {PasswordInputWithValidation, UsernameInput} from '@components/forms/inpu
 import FormContainer from '@components/forms/Container'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import {useLogin} from '@hooks/useAuth'
-import {loginInput} from '@schemas/appSchemas/auth'
+import {LoginInput} from '@schemas/auth'
 import {enqueueSnackbar} from 'notistack'
 import {ApiError} from '@api/errorHandler'
 import {Link, useNavigate} from '@tanstack/react-router'
@@ -12,17 +12,17 @@ const LoginForm = () => {
   const {mutateAsync: login, isPending} = useLogin()
   const navigate = useNavigate()
 
-  const methods = useForm<loginInput>({
+  const methods = useForm<LoginInput>({
     mode: 'onTouched',
     defaultValues: {
-      username: '',
+      mail: '',
       password: '',
     },
   })
 
   const {handleSubmit, register} = methods
 
-  const onSubmit: SubmitHandler<loginInput> = async input => {
+  const onSubmit: SubmitHandler<LoginInput> = async input => {
     try {
       await login(input)
       navigate({to: '/dashboard', replace: true})
@@ -54,7 +54,7 @@ const LoginForm = () => {
       colorButton="lightBlue"
     >
       <Stack width="100%" minHeight="20vh" justifyContent="space-evenly" gap={12} mb={20} mt={16}>
-        <UsernameInput label="Usuario" register={register('username', {required: 'Este campo is obligatorio'})}/>
+        <UsernameInput label="Usuario" register={register('mail', {required: 'Este campo is obligatorio'})}/>
         <PasswordInputWithValidation
           label="Contraseña"
           register={register('password', {required: 'Este campo es obligatorio'})}
