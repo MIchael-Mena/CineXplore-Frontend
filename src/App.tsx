@@ -1,10 +1,10 @@
 import './App.css';
-// import React from 'react';
-// import { RouterProvider } from 'react-router-dom';
-// import { router } from './config/router';
-// import { SnackbarConfig } from './config/snackbar.config';
+import React from 'react';  
+import { RouterProvider } from 'react-router-dom';
+import { router } from './config/router';
+import { SnackbarConfig } from './config/snackbar.config';
 
-/*function App() {
+function App() {
   return (
     <React.Fragment>
       <SnackbarConfig>
@@ -12,14 +12,6 @@ import './App.css';
       </SnackbarConfig>
     </React.Fragment>
   );
-}*/
-
-function App() {
-  return (
-    <div>
-      Hello, world!
-    </div>
-  )
 }
 
 export default App;
