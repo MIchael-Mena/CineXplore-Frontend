@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { ApiResponse } from '../models/ApiResponse';
+import type { ApiResponse } from '../models/ApiResponse';
 import { enqueueSnackbar } from 'notistack';
 
 const getApiError = <T = void>(err: any) => {

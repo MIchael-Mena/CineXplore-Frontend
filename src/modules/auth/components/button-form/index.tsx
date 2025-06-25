@@ -1,5 +1,5 @@
-import { ApiResponse } from '../../../../models/ApiResponse';
-import { User } from '../../../../models/User';
+import type { ApiResponse } from '../../../../models/ApiResponse';
+import type { User } from '../../../../models/User';
 import { Button, CircularProgress } from '@mui/material';
 import { useApiService } from '../../../../hooks/useApiService';
 import { handleSnackbar } from '../../../../utils/apiUtils';
@@ -11,7 +11,7 @@ interface ButtonFormProps<T> {
   buttonText: string;
 }
 
-export const ButtonForm = <T extends Object>({
+export const ButtonForm = <T extends object>({
   onSubmit,
   onClose,
   buttonText,

@@ -1,8 +1,8 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { LoginForm } from '../../models/LoginForm';
+import type { LoginForm } from '../../models/LoginForm';
 import { ApiService } from '../../services/api.service';
-import { User } from '../../models/User';
-import { ApiResponse } from '../../models/ApiResponse';
+import type { User } from '../../models/User';
+import type { ApiResponse } from '../../models/ApiResponse';
 import { AuthService } from '../../services/auth.service';
 import { getApiError } from '../../utils/apiUtils';
 
@@ -21,8 +21,8 @@ const authenticate = createAsyncThunk<
   try {
     const response = await AuthService.authenticate();
     return response;
-  } catch (err: any) {
-    return rejectWithValue(<ApiResponse<User>>getApiError(err));
+  } catch (err: unknown) {
+    return rejectWithValue(getApiError(err) as ApiResponse<User>);
   }
 });
 
@@ -43,7 +43,7 @@ const login = createAsyncThunk<
     // En un componente por ej se usa: dispatch(login()).then((res)=>{})
     // res.payload es undefined si se lanzo throw(error) y res.payload es el objeto que se devuelve
     // en el return del catch si se devuelve un objeto
-    return rejectWithValue(<ApiResponse<User>>getApiError(error));
+    return rejectWithValue(getApiError(error) as ApiResponse<User>);
   }
 });
 
@@ -56,39 +56,13 @@ const register = createAsyncThunk<
     const response = await AuthService.register(user);
     return response;
   } catch (error) {
-    return rejectWithValue(<ApiResponse<User>>getApiError(error));
+    return rejectWithValue(getApiError(error) as ApiResponse<User>);
   }
 });
 
 const logout = createAction('logout', () => {
   AuthService.logout();
   return { payload: null };
-});
-
-const registerWithGoogle = createAsyncThunk<
-  ApiResponse<User>,
-  string,
-  { rejectValue: ApiResponse<User> }
->('registerFromGoogle', async (code: string, { rejectWithValue }) => {
-  try {
-    const response = await AuthService.registerWithGoogle(code);
-    return response;
-  } catch (error) {
-    return rejectWithValue(<ApiResponse<User>>getApiError(error));
-  }
-});
-
-const loginWithGoogle = createAsyncThunk<
-  ApiResponse<User>,
-  string,
-  { rejectValue: ApiResponse<User> }
->('signInWithGoogle', async (code: string, { rejectWithValue }) => {
-  try {
-    const response = await AuthService.loginWithGoogle(code);
-    return response;
-  } catch (error) {
-    return rejectWithValue(<ApiResponse<User>>getApiError(error));
-  }
 });
 
 const addFavouriteItinerary = createAsyncThunk<
@@ -104,7 +78,7 @@ const addFavouriteItinerary = createAsyncThunk<
       );
       return response;
     } catch (error) {
-      return rejectWithValue(<ApiResponse<LikeResponse>>getApiError(error));
+      return rejectWithValue(getApiError(error) as ApiResponse<LikeResponse>);
     }
   }
 );
@@ -122,7 +96,7 @@ const removeFavouriteItinerary = createAsyncThunk<
       );
       return response;
     } catch (error) {
-      return rejectWithValue(<ApiResponse<LikeResponse>>getApiError(error));
+      return rejectWithValue(getApiError(error) as ApiResponse<LikeResponse>);
     }
   }
 );
@@ -133,8 +107,6 @@ export {
   login,
   register,
   logout,
-  registerWithGoogle,
-  loginWithGoogle,
   addFavouriteItinerary,
   removeFavouriteItinerary,
 };

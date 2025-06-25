@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from '@mui/material';
-import { Eclipse, ThreeDotsScale } from 'react-svg-spinners';
+import { RingLoader, PulseLoader } from 'react-spinners';
 
 const LoaderTransition = () => {
   const theme = useTheme();
@@ -14,7 +14,7 @@ const LoaderTransition = () => {
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <Eclipse width="300px" height="300px" color={theme.palette.divider} />
+          <RingLoader size={300} color={theme.palette.divider} />
 
           <Box
             sx={{
@@ -29,11 +29,7 @@ const LoaderTransition = () => {
               Loading
             </Typography>
             <Box component="span" ml={1}>
-              <ThreeDotsScale
-                width="50px"
-                height="50px"
-                color={theme.palette.text.primary}
-              />
+              <PulseLoader size={15} color={theme.palette.text.primary} />
             </Box>
           </Box>
         </Box>

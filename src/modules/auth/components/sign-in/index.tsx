@@ -4,7 +4,7 @@ import { InputPasswordControl } from '../../../shared/components/input-password-
 import { useForm } from 'react-hook-form';
 import { InputTextControl } from '../../../shared/components/input-text-control';
 import { rules } from '../../../../models/rulesValidation';
-import { login } from '../../../../store/actions/user';
+import { login } from '../../../../store/actions/userActions';
 import { useAppDispatch } from '../../../../store/hooks';
 import { LoginForm } from '../../../../models/LoginForm';
 import { ButtonForm } from '../button-form';
@@ -75,8 +75,7 @@ export const SignIn = ({ onSignUpClick, onClose }: SignInProps) => {
             onClose={onClose}
             buttonText="Sign in"
           />
-
-       </Grid>
+        </Grid>
 
         <Grid item xs={12}>
           <Typography align="center">

@@ -1,15 +1,35 @@
-import React, { Suspense } from 'react';
+import { Suspense, lazy, createElement } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import Layout from '../layouts/Layout';
 import NotFound from '../modules/core/components/not-found';
-import { NavItem } from '../models/NavItem';
-// import LoaderTransition from '../modules/core/components/loader-transition';
+import type { NavItem } from '../models/NavItem';
+import LoaderTransition from '../modules/core/components/loader-transition';
+import Home from '../modules/home/Home';
+import Movies from '../modules/movies/Movies';
 
 const navItems: NavItem[] = [
   { name: 'Home', path: '/home' },
+  { name: 'Movies', path: '/movies' },
 ];
 
-const Home = React.lazy(() => import('../modules/home/pages/Home'));
+/* const Home = lazy(() =>
+  import('../modules/home/Home.tsx').catch((error) => {
+    console.warn('Failed to load Home component:', error);
+    return {
+      default: () =>
+        createElement('div', null, 'Failed to load Home component'),
+    };
+  })
+);
+const Movies = lazy(() =>
+  import('../modules/movies/Movies.tsx').catch((error) => {
+    console.warn('Failed to load Movies component:', error);
+    return {
+      default: () =>
+        createElement('div', null, 'Failed to load Movies component'),
+    };
+  })
+); */
 
 const router = createBrowserRouter([
   {
@@ -20,11 +40,20 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: (
-          // <Suspense fallback={<LoaderTransition />}>
+          <Suspense fallback={<LoaderTransition />}>
             <Home />
-          // </Suspense>
+          </Suspense>
         ),
-        caseSensitive: true,
+        caseSensitive: false,
+      },
+      {
+        path: '/movies',
+        element: (
+          <Suspense fallback={<LoaderTransition />}>
+            <Movies />
+          </Suspense>
+        ),
+        caseSensitive: false,
       },
       { path: '*', element: <NotFound /> },
     ],
@@ -32,4 +61,3 @@ const router = createBrowserRouter([
 ]);
 
 export { router, navItems };
-

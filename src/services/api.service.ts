@@ -1,10 +1,11 @@
-import axios, { AxiosError, AxiosInstance } from 'axios';
-import { ApiResponse } from '../models/ApiResponse';
-import { setAuthError } from '../store/actions/user';
-import { Action } from '@reduxjs/toolkit';
+import axios, { AxiosError, type AxiosInstance } from 'axios';
+import type { ApiResponse } from '../models/ApiResponse';
+import { setAuthError } from '../store/actions/userActions';
+import { type Action } from '@reduxjs/toolkit';
 
 export class ApiService {
-  protected static baseUrl: string = import.meta.env.VITE_BASE_URL;
+  protected static baseUrl: string =
+    import.meta.env.VITE_BASE_URL || 'http://localhost:3000/api'; // URL del backend
   protected static instanceAxios: AxiosInstance = axios.create({
     baseURL: this.baseUrl,
     timeout: 2000,
@@ -56,38 +57,30 @@ export class ApiService {
     endPoint: string,
     queryParams: { [key: string]: string | number | boolean } = {}
   ): Promise<T> {
-    try {
-      // const token = localStorage.getItem('token');
-      const response = await this.instanceAxios.get<ApiResponse<T>>(endPoint, {
-        params: queryParams,
-        // ...(token ? this.auth(token) : {}),
-      });
-      return response.data.data!;
-    } catch (error) {
-      throw error;
-    }
+    // const token = localStorage.getItem('token');
+    const response = await this.instanceAxios.get<ApiResponse<T>>(endPoint, {
+      params: queryParams,
+      // ...(token ? this.auth(token) : {}),
+    });
+    return response.data.data!;
   }
 
   static async postData<T>(
     endPoint: string,
-    body: Object = {}
+    body: object = {}
   ): Promise<ApiResponse<T>> {
-    try {
-      // const token = localStorage.getItem('token');
-      const response = await this.instanceAxios.post<ApiResponse<T>>(
-        endPoint,
-        body
-        // token ? this.auth(token) : {}
-      );
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    // const token = localStorage.getItem('token');
+    const response = await this.instanceAxios.post<ApiResponse<T>>(
+      endPoint,
+      body
+      // token ? this.auth(token) : {}
+    );
+    return response.data;
   }
 
   static patchData<T>(
     endPoint: string,
-    body: Object = {}
+    body: object = {}
   ): Promise<ApiResponse<T>> {
     return this.instanceAxios
       .patch<ApiResponse<T>>(endPoint, body)
@@ -97,13 +90,7 @@ export class ApiService {
   }
 
   static async deleteData<T>(endPoint: string): Promise<ApiResponse<T>> {
-    try {
-      const response = await this.instanceAxios.delete<ApiResponse<T>>(
-        endPoint
-      );
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await this.instanceAxios.delete<ApiResponse<T>>(endPoint);
+    return response.data;
   }
 }

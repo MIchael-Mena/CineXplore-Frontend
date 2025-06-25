@@ -1,8 +1,8 @@
+import React from 'react';
 import './App.css';
-import React from 'react';  
+import { SnackbarConfig } from './config/snackbar.config';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './config/router';
-import { SnackbarConfig } from './config/snackbar.config';
 
 function App() {
   return (
