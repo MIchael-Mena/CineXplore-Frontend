@@ -19,6 +19,7 @@ export class ApiService {
   }; */
   protected static dispatch: (action: Action) => void;
 
+  // Servicio inicializado en Main.tsx
   static initialize(dispatch: (action: Action) => void) {
     this.dispatch = dispatch;
     // Interceptor de respuesta, no lo hago en el constructor porque necesito usar el dispatch

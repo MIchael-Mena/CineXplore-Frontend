@@ -1,15 +1,9 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import type { LoginForm } from '../../models/LoginForm';
-import { ApiService } from '../../services/api.service';
 import type { User } from '../../models/User';
 import type { ApiResponse } from '../../models/ApiResponse';
 import { AuthService } from '../../services/auth.service';
 import { getApiError } from '../../utils/apiUtils';
-
-interface LikeResponse {
-  totalLikes: number;
-  itineraryId: string;
-}
 
 const setAuthError = createAction<boolean>('setAuthError');
 
@@ -65,48 +59,4 @@ const logout = createAction('logout', () => {
   return { payload: null };
 });
 
-const addFavouriteItinerary = createAsyncThunk<
-  ApiResponse<LikeResponse>,
-  { postId: string },
-  { rejectValue: ApiResponse<LikeResponse> }
->(
-  'addFavouriteItinerary',
-  async (payload: { postId: string }, { rejectWithValue }) => {
-    try {
-      const response = await ApiService.postData<LikeResponse>(
-        '/itinerary/like/' + payload.postId
-      );
-      return response;
-    } catch (error) {
-      return rejectWithValue(getApiError(error) as ApiResponse<LikeResponse>);
-    }
-  }
-);
-
-const removeFavouriteItinerary = createAsyncThunk<
-  ApiResponse<LikeResponse>,
-  { postId: string },
-  { rejectValue: ApiResponse<LikeResponse> }
->(
-  'removeFavouriteItinerary',
-  async (payload: { postId: string }, { rejectWithValue }) => {
-    try {
-      const response = await ApiService.deleteData<LikeResponse>(
-        '/itinerary/dislike/' + payload.postId
-      );
-      return response;
-    } catch (error) {
-      return rejectWithValue(getApiError(error) as ApiResponse<LikeResponse>);
-    }
-  }
-);
-
-export {
-  setAuthError,
-  authenticate,
-  login,
-  register,
-  logout,
-  addFavouriteItinerary,
-  removeFavouriteItinerary,
-};
+export { setAuthError, authenticate, login, register, logout };

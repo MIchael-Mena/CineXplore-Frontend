@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import Header from '../modules/core/components/Header';
 import Footer from '../modules/core/components/Footer';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
-import RouteChangeHandler from '../modules/core/components/route-change-handler';
 import { useEffect } from 'react';
 import type { ApiResponse } from '../models/ApiResponse';
 import { handleSnackbar } from '../utils/apiUtils';
@@ -43,7 +42,6 @@ const Layout = () => {
         <Outlet />
       </Box>
       <Footer minHeight={componentSizes.footer} />
-      <RouteChangeHandler />
       <ScrollRestoration
         // key={'scroll-restoration'}
         // Dejo de funcionar preventScrollReset en NavLink y en useNavigate

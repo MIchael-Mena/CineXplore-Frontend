@@ -1,6 +1,6 @@
 import type { Movie } from '../modules/movies/models/Movie';
 
-export const fakeMovies: Movie[] = [
+const MockMovies: Movie[] = [
   {
     id: 1,
     title: 'El Origen',
@@ -116,3 +116,5 @@ export const fakeMovies: Movie[] = [
     actorIds: [23, 24],
   },
 ];
+
+export default MockMovies;

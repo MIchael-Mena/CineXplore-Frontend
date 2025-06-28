@@ -1,10 +1,10 @@
-import { fakeMovies } from '../../utils/MoviesApi';
+import MockMovies from '../../utils/MockMovies';
 import MoviesList from './components/MoviesList';
 
 const Movies = () => {
   return (
     <>
-      <MoviesList movies={fakeMovies} />
+      <MoviesList movies={MockMovies} />
     </>
   );
 };

@@ -1,11 +1,12 @@
 import type { User } from '../models/User';
 import type { ApiResponse } from '../models/ApiResponse';
 import { ApiService } from './api.service';
+import apiEndpoints from '../utils/apiEndpoints';
 
 export class AuthService extends ApiService {
-  private static authEndpoint: string = '/auth';
+  // private static authEndpoint: string = '/auth';
 
-  constructor() {
+  private constructor() {
     super();
   }
 
@@ -14,7 +15,7 @@ export class AuthService extends ApiService {
     password: string
   ): Promise<ApiResponse<User>> {
     const response = await this.instanceAxios.post<ApiResponse<User>>(
-      this.authEndpoint + '/login',
+      apiEndpoints.auth.login,
       {
         email,
         password,
@@ -30,7 +31,7 @@ export class AuthService extends ApiService {
 
   public static async register(user: User): Promise<ApiResponse<User>> {
     const response = await this.instanceAxios.post<ApiResponse<User>>(
-      this.authEndpoint + '/register',
+      apiEndpoints.auth.register,
       user
     );
     localStorage.setItem('token', response.data.token!);
@@ -40,7 +41,7 @@ export class AuthService extends ApiService {
   public static async authenticate(): Promise<ApiResponse<User>> {
     try {
       const response = await this.instanceAxios.post<ApiResponse<User>>(
-        this.authEndpoint + '/authenticate' // Endpoint para refrescar el token
+        apiEndpoints.auth.refreshToken
       );
       localStorage.setItem('token', response.data.token!);
       return response.data;
