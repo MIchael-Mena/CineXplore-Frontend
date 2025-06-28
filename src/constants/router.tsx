@@ -1,11 +1,11 @@
 import { Suspense, lazy, createElement } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import Layout from '../layouts/Layout';
-import NotFound from '../modules/core/components/not-found';
+import NotFound from '../components/common/not-found';
 import type { NavItem } from '../models/NavItem';
-import LoaderTransition from '../modules/core/components/loader-transition';
-import Home from '../modules/home/Home';
-import Movies from '../modules/movies/Movies';
+import LoaderTransition from '../components/common/loader-transition';
+import HomePage from '../pages/HomePage';
+import Layout from '../components/layout/Layout';
+import Movies from '../pages/MoviesPage';
 
 const navItems: NavItem[] = [
   { name: 'Home', path: '/home' },
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         path: '/home',
         element: (
           <Suspense fallback={<LoaderTransition />}>
-            <Home />
+            <HomePage />
           </Suspense>
         ),
         caseSensitive: false,

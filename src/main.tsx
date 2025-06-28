@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import { ThemeConfig } from './config/theme.config.tsx';
+import { ThemeConfig } from './styles/theme.config.tsx';
 import { Provider } from 'react-redux';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';

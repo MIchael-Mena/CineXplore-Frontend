@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Skeleton, SxProps, Theme } from '@mui/material';
 import { useEffect } from 'react';
-import useIsInView from '../../../../hooks/useIsInView';
+import useIsInView from '../../../hooks/useIsInView';
 
 interface LazyLoadImageWithSkeletonProps {
   src: string;

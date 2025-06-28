@@ -1,14 +1,14 @@
 import { Box, Grid, Link, Typography } from '@mui/material';
-import { DatePickerControl } from '../../../shared/components/date-picker-control';
-import CountrySelect from '../../../shared/components/country-select';
+import { DatePickerControl } from '../../../../components/common/date-picker-control';
+import CountrySelect from '../../../../components/common/country-select';
 import { Controller, useForm } from 'react-hook-form';
 import type { User } from '../../../../models/User';
-import { InputTextControl } from '../../../shared/components/input-text-control';
+import { InputTextControl } from '../../../../components/common/input-text-control';
 import { rules } from '../../../../models/rulesValidation';
 import { useAppDispatch } from '../../../../store/hooks';
 import { useState } from 'react';
 import { Dayjs } from 'dayjs';
-import { InputPasswordControl } from '../../../shared/components/input-password-control';
+import { InputPasswordControl } from '../../../../components/common/input-password-control';
 import { ButtonForm } from '../button-form';
 import { register } from '../../../../store/actions/userActions';
 

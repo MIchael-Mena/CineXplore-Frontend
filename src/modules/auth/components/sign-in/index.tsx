@@ -1,8 +1,8 @@
 import { Typography, Link, Grid, Box } from '@mui/material';
 import { Email } from '@mui/icons-material';
-import { InputPasswordControl } from '../../../shared/components/input-password-control';
+import { InputPasswordControl } from '../../../../components/common/input-password-control';
 import { useForm } from 'react-hook-form';
-import { InputTextControl } from '../../../shared/components/input-text-control';
+import { InputTextControl } from '../../../../components/common/input-text-control';
 import { rules } from '../../../../models/rulesValidation';
 import { login } from '../../../../store/actions/userActions';
 import { useAppDispatch } from '../../../../store/hooks';

@@ -1,5 +1,5 @@
-import MockMovies from '../../utils/MockMovies';
-import MoviesList from './components/MoviesList';
+import MockMovies from '../constants/mockMovies';
+import MoviesList from '../modules/movies/components/MoviesList';
 
 const Movies = () => {
   return (

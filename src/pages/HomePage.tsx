@@ -1,7 +1,7 @@
 import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const HomePage = () => {
   const navigate = useNavigate();
 
   return (
@@ -22,4 +22,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

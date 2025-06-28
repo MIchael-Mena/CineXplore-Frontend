@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
-import Header from '../modules/core/components/Header';
-import Footer from '../modules/core/components/Footer';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { useEffect } from 'react';
-import type { ApiResponse } from '../models/ApiResponse';
-import { handleSnackbar } from '../utils/apiUtils';
-import { useAppDispatch } from '../store/hooks';
-import { authenticate } from '../store/actions/userActions';
+import { useAppDispatch } from '../../store/hooks';
+import { authenticate } from '../../store/actions/userActions';
+import { handleSnackbar } from '../../utils/apiUtils';
+import type { ApiResponse } from '../../models/ApiResponse';
+import Footer from './Footer';
+import Header from './Header';
 
 const componentSizes = {
   header: '70px',

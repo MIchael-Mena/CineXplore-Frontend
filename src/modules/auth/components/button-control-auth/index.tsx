@@ -2,7 +2,7 @@ import UserIcon from '@mui/icons-material/AccountCircle';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import { Button } from '@mui/material';
 import { logout } from '../../../../store/actions/userActions';
-import { UserAvatar } from '../../../shared/components/user-avatar';
+import { UserAvatar } from '../../../../components/common/user-avatar';
 import { useEffect } from 'react';
 import { handleSnackbar } from '../../../../utils/apiUtils';
 

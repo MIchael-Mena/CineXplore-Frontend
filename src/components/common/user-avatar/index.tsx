@@ -1,5 +1,5 @@
 import { Avatar, AvatarProps, Tooltip } from '@mui/material';
-import { stringAvatar } from '../../../../utils/util';
+import { stringAvatar } from '../../../utils/util';
 
 interface UserAvatarProps {
   imageUrl: string;

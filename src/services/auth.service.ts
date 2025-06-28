@@ -1,7 +1,7 @@
 import type { User } from '../models/User';
 import type { ApiResponse } from '../models/ApiResponse';
 import { ApiService } from './api.service';
-import apiEndpoints from '../utils/apiEndpoints';
+import apiEndpoints from '../constants/apiEndpoints';
 
 export class AuthService extends ApiService {
   // private static authEndpoint: string = '/auth';
