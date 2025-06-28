@@ -33,7 +33,7 @@ const MoviesList = ({ movies }: { movies: Movie[] }) => {
   );
 
   return (
-    <>
+    <Box>
       <Box>
         <TextField
           label="Buscar pelicula"
@@ -48,7 +48,7 @@ const MoviesList = ({ movies }: { movies: Movie[] }) => {
         <Grid container spacing={3}>
           {filteredMovies.map((movie) => (
             <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={movie.id}>
-              <CardActionArea onClick={() => handleOpenModal(movie)}>
+              <CardActionArea onClick={() => handleOpenModal(movie)} sx={{ width: 200, }} >
                 <CardMovie coverUrl={movie.coverUrl!} title={movie.title} />
               </CardActionArea>
             </Grid>
@@ -94,7 +94,7 @@ const MoviesList = ({ movies }: { movies: Movie[] }) => {
           )}
         </Box>
       </Modal>
-    </>
+    </Box>
   );
 };
 
