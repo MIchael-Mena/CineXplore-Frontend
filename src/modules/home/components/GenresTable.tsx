@@ -31,7 +31,7 @@ interface Props {
     onDelete: (index: number) => void
 }
 
-export default function GenresManager({ genres, onCreate, onEdit, onDelete }: Props) {
+export default function GenresList({ genres, onCreate, onEdit, onDelete }: Props) {
     const [newGenreName, setNewGenreName] = useState('')
     const [editIndex, setEditIndex] = useState<number | null>(null)
     const [editedName, setEditedName] = useState('')
