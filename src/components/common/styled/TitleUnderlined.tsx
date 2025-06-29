@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box, BoxProps } from '@mui/material';
+import { Box, type BoxProps } from '@mui/material';
 
 const TitleUnderlined = styled(Box)<BoxProps>(({}) => ({
   borderBottom: '3px solid #ccc',

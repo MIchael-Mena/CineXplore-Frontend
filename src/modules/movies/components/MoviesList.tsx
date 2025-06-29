@@ -4,7 +4,6 @@ import {
   CardMedia,
   Grid,
   Modal,
-  TextField,
   Typography,
 } from '@mui/material';
 import CardMovie from './MovieCard';
@@ -12,7 +11,6 @@ import type { Movie } from '../models/Movie';
 import { useState } from 'react';
 
 const MoviesList = ({ movies }: { movies: Movie[] }) => {
-  const [searchQuery, setSearchQuery] = useState('');
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -26,35 +24,28 @@ const MoviesList = ({ movies }: { movies: Movie[] }) => {
     setSelectedMovie(null);
   };
 
-  const filteredMovies = movies.filter((m) =>
-    searchQuery
-      ? m.title.toLowerCase().includes(searchQuery.toLowerCase())
-      : true
-  );
-
   return (
-    <Box>
-      <Box>
-        <TextField
-          label="Buscar pelicula"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-      </Box>
-
-      <Box sx={{ flexGrow: 1, padding: 2 }}>
-        <Grid container spacing={3}>
-          {filteredMovies.map((movie) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={movie.id}>
-              <CardActionArea onClick={() => handleOpenModal(movie)} sx={{ width: 200, }} >
-                <CardMovie coverUrl={movie.coverUrl!} title={movie.title} />
-              </CardActionArea>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+    <Box sx={{ flexGrow: 1, padding: 2 }}>
+      <Grid container spacing={3}>
+        {movies.map((movie) => (
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 4,
+              lg: 3,
+            }}
+            key={movie.id}
+          >
+            <CardActionArea
+              onClick={() => handleOpenModal(movie)}
+              sx={{ width: 200 }}
+            >
+              <CardMovie coverUrl={movie.coverUrl!} title={movie.title} />
+            </CardActionArea>
+          </Grid>
+        ))}
+      </Grid>
 
       <Modal open={isModalOpen} onClose={handleCloseModal}>
         <Box

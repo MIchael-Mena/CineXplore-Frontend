@@ -4,7 +4,7 @@ import CountrySelect from '../../../../components/common/country-select';
 import { Controller, useForm } from 'react-hook-form';
 import type { User } from '../../../../models/User';
 import { InputTextControl } from '../../../../components/common/input-text-control';
-import { rules } from '../../../../models/rulesValidation';
+import { rules } from '../../../../constants/rulesValidation';
 import { useAppDispatch } from '../../../../store/hooks';
 import { useState } from 'react';
 import { Dayjs } from 'dayjs';
@@ -29,15 +29,14 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
     // mode: 'onTouched',
     delayError: 1000,
     defaultValues: {
+      username: '',
       email: '',
       password: '',
       confirmPassword: '',
-      firstName: '',
-      lastName: '',
       country: null,
       // Para iniciar una fecha por defecto, se debe usar el tipo Dayjs: dayjs('2021-10-10')
       birthDate: null, // reconoze 'yyyy-mm-dd' (formato valido para el backend) y 'mm-dd-yyyy' entre otros
-      profilePic: '',
+      avatarUrl: '',
     },
   });
 
@@ -75,19 +74,11 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
 
           <Grid size={{ xs: 6 }}>
             <InputTextControl
-              name="firstName"
-              label="First Name"
+              name="username"
+              label="Username"
+              autoComplete="username"
               control={control}
               rules={rules.firstName}
-              required
-            />
-          </Grid>
-          <Grid size={{ xs: 6 }}>
-            <InputTextControl
-              name="lastName"
-              label="Last Name"
-              control={control}
-              rules={rules.lastName}
               required
             />
           </Grid>

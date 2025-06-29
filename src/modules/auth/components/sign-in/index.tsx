@@ -3,7 +3,7 @@ import { Email } from '@mui/icons-material';
 import { InputPasswordControl } from '../../../../components/common/input-password-control';
 import { useForm } from 'react-hook-form';
 import { InputTextControl } from '../../../../components/common/input-text-control';
-import { rules } from '../../../../models/rulesValidation';
+import { rules } from '../../../../constants/rulesValidation';
 import { login } from '../../../../store/actions/userActions';
 import { useAppDispatch } from '../../../../store/hooks';
 import type { LoginForm } from '../../../../models/LoginForm';

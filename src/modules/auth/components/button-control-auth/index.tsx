@@ -33,14 +33,15 @@ export const ButtonControlAuth = ({
   return (
     <>
       <Button
-        variant="contained"
+        variant="outlined"
         color="secondary"
+        size="large"
         sx={{ ml: 1 }}
         onClick={isLogged ? handleLogout : handleLoginOpen}
       >
         {isLogged && user ? (
           <UserAvatar
-            imageUrl={user.avtarUrl || ''}
+            imageUrl={user.avatarUrl || ''}
             username={`${user.email.split('@')[0]} (${user.username})`}
             sx={{
               mr: 1,

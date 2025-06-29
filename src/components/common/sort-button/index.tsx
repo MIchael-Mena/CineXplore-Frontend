@@ -3,7 +3,7 @@ import {
   Divider,
   Menu,
   MenuItem,
-  MenuProps,
+  type MenuProps,
   Typography,
   alpha,
   styled,

@@ -14,8 +14,10 @@ const defaultUser: User = {
   id: '',
   username: '',
   email: '',
+  country: null,
+  birthDate: null, // formato LocalDate (YYYY-MM-DD)
   roles: [],
-  avtarUrl: '',
+  avatarUrl: '',
 };
 
 interface UserState {

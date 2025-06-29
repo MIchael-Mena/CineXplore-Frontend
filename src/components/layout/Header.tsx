@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import AuthAccesssModal from '../../modules/auth/components/auth-access-modal';
 
 interface HeaderProps {
   minHeight: string;
@@ -13,10 +14,11 @@ const Header = ({ minHeight }: HeaderProps) => {
         background: 'primary.main',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         padding: 2,
       }}
     >
-      <h2 style={{ margin: 0, color: 'white' }}>CineXplore Header</h2>
+      <AuthAccesssModal />
     </Box>
   );
 };

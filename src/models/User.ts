@@ -2,11 +2,14 @@
 
 export interface User {
   id: string;
+  password?: string;
   username: string;
   email: string;
+  country?: string | null;
+  birthDate?: string | null; // formato LocalDate (YYYY-MM-DD)
   roles: string[];
-  avtarUrl?: string; // Optional property for user's avatar URL
-  // comments?: Comment[]; // Optional property to hold user's comments
-  // likes?: string[]; // Optional property to hold liked movie IDs
-  // ratings?: { [movieId: string]: number }; // Optional property to hold movie ratings
+  avatarUrl?: string;
+  // comments?: Comment[];
+  // likes?: string[];
+  // ratings?: { [movieId: string]: number };
 }

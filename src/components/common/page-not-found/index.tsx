@@ -22,7 +22,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export default function NotFound() {
+export default function PageNotFound() {
   return (
     <StyledContainer>
       <StyledTypography variant="h1" fontSize="10rem">

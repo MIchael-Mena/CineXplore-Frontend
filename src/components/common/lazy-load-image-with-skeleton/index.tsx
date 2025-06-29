@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Skeleton, SxProps, Theme } from '@mui/material';
+import { Skeleton, type SxProps, type Theme } from '@mui/material';
 import { useEffect } from 'react';
 import useIsInView from '../../../hooks/useIsInView';
 

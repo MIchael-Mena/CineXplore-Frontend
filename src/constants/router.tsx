@@ -1,6 +1,6 @@
 import { Suspense, lazy, createElement } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import NotFound from '../components/common/not-found';
+import PageNotFound from '../components/common/page-not-found';
 import type { NavItem } from '../models/NavItem';
 import LoaderTransition from '../components/common/loader-transition';
 import HomePage from '../pages/HomePage';
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         ),
         caseSensitive: false,
       },
-      { path: '*', element: <NotFound /> },
+      { path: '*', element: <PageNotFound /> },
     ],
   },
 ]);
