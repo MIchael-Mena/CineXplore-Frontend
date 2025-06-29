@@ -4,8 +4,7 @@ import { setAuthError } from '../store/actions/userActions';
 import { type Action } from '@reduxjs/toolkit';
 
 export class ApiService {
-  protected static baseUrl: string =
-    import.meta.env.VITE_BASE_URL || 'http://localhost:3000/api'; // URL del backend
+  protected static baseUrl: string = import.meta.env.VITE_BASE_URL; // URL del backend
   protected static instanceAxios: AxiosInstance = axios.create({
     baseURL: this.baseUrl,
     timeout: 2000,

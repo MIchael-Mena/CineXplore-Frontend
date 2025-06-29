@@ -7,8 +7,9 @@ import {
   InputLabel,
   OutlinedInput,
 } from '@mui/material';
-import { useState, MouseEvent } from 'react';
-import { Controller, RegisterOptions } from 'react-hook-form';
+import { useState, type MouseEvent } from 'react';
+import { Controller } from 'react-hook-form';
+import type { RegisterOptions } from 'react-hook-form';
 import { InputErrorAlert } from '../input-error-alert';
 
 interface InputPasswordControlProps {

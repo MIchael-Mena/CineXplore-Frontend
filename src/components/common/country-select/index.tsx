@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { CountryType, countries } from '../../../../models/CountryType';
-import { FieldError } from 'react-hook-form';
+import type { FieldError } from 'react-hook-form';
+import { countries, type CountryType } from '../../../constants/CountryType';
 
 interface CountrySelectProps {
   width?: string;

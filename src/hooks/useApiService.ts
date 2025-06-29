@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { StatusResponse } from '../models/StatusResponse';
+import type { StatusResponse } from '../models/StatusResponse';
 
 // Ejemplo de uso:
 // const {data: cities,loading, error} = useApiService<City[]>(() => ApiService.getData<City[]>('/cities'));

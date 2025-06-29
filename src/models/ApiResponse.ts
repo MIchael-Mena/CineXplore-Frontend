@@ -1,7 +1,7 @@
 export interface ApiResponse<T> {
+  status?: number;
   success: boolean;
   message: string | string[];
-  token?: string;
   data?: T;
   timestamp: string;
 }

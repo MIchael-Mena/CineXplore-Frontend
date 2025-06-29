@@ -1,16 +1,12 @@
-import type { Comment } from './Comment';
+// import type { Comment } from './Comment';
 
 export interface User {
-  _id?: string;
-  password?: string;
-  email?: string;
-  firstName: string;
-  lastName: string;
-  profilePic: string;
-  country?: string | null;
-  birthDate?: string | null;
-  comments?: Comment[];
-  favouritesCities?: string[];
-  favouriteActivities?: string[];
-  favouriteItineraries?: string[];
+  id: string;
+  username: string;
+  email: string;
+  roles: string[];
+  avtarUrl?: string; // Optional property for user's avatar URL
+  // comments?: Comment[]; // Optional property to hold user's comments
+  // likes?: string[]; // Optional property to hold liked movie IDs
+  // ratings?: { [movieId: string]: number }; // Optional property to hold movie ratings
 }

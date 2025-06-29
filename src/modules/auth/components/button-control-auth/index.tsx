@@ -40,8 +40,8 @@ export const ButtonControlAuth = ({
       >
         {isLogged && user ? (
           <UserAvatar
-            imageUrl={user.profilePic}
-            username={`${user.firstName} ${user.lastName}`}
+            imageUrl={user.avtarUrl || ''}
+            username={`${user.email.split('@')[0]} (${user.username})`}
             sx={{
               mr: 1,
               width: '30px',

@@ -1,11 +1,11 @@
 import type { ApiResponse } from '../../../../models/ApiResponse';
-import type { User } from '../../../../models/User';
 import { Button, CircularProgress } from '@mui/material';
 import { useApiService } from '../../../../hooks/useApiService';
 import { handleSnackbar } from '../../../../utils/apiUtils';
+import type { AuthData } from '../../../../models/AuthData';
 
 interface ButtonFormProps<T> {
-  onSubmit: (form: T) => Promise<ApiResponse<User>>;
+  onSubmit: (form: T) => Promise<ApiResponse<AuthData>>;
   payloadOfSubmit: { form: T } | null;
   onClose: () => void;
   buttonText: string;
@@ -32,7 +32,7 @@ export const ButtonForm = <T extends object>({
         handleSnackbar(res.message, 'success');
         onClose();
       })
-      .catch((res: ApiResponse<User>) => {
+      .catch((res: ApiResponse<AuthData>) => {
         handleSnackbar(res.message, 'error');
       });
     return Promise.resolve({} as ApiResponse<void>);

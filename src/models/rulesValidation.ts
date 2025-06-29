@@ -1,5 +1,5 @@
 import dayjs, { Dayjs } from 'dayjs';
-import { RegisterOptions } from 'react-hook-form';
+import type { RegisterOptions } from 'react-hook-form';
 
 interface Rules {
   [key: string]: RegisterOptions;

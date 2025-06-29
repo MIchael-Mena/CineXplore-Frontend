@@ -1,9 +1,9 @@
 import {
   DatePicker,
-  DatePickerSlotsComponentsProps,
+  // DatePickerSlotsComponentsProps,
 } from '@mui/x-date-pickers/DatePicker';
 import dayjs, { Dayjs } from 'dayjs';
-import { Controller, RegisterOptions } from 'react-hook-form';
+import { Controller, type RegisterOptions } from 'react-hook-form';
 import { useMemo } from 'react';
 import { InputErrorAlert } from '../input-error-alert';
 
@@ -42,21 +42,20 @@ export const DatePickerControl = ({
             value={value}
             onChange={(date: Dayjs | null) => onChange(date)}
             // onError={(error) =>  {}} // error es un string y puede valer: 'maxDate', 'minDate', 'invalidDate'
-            slotProps={
-              {
-                textField: {
-                  margin: margin,
-                  required: required,
-                  error: !!error,
-                  helperText: error ? (
-                    <InputErrorAlert message={error.message!} />
-                  ) : null,
-                  fullWidth: true,
-                  label: label,
-                  FormHelperTextProps: { component: 'div' },
-                },
-              } as DatePickerSlotsComponentsProps<Dayjs>
-            }
+            slotProps={{
+              textField: {
+                margin: margin,
+                required: required,
+                error: !!error,
+                helperText: error ? (
+                  <InputErrorAlert message={error.message!} />
+                ) : null,
+                fullWidth: true,
+                label: label,
+                FormHelperTextProps: { component: 'div' },
+              },
+              // } as DatePickerSlotsComponentsProps<Dayjs>
+            }}
           />
         )}
       />

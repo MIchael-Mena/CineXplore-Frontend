@@ -67,13 +67,13 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <Typography variant="h4" align="center" gutterBottom>
               Create an account
             </Typography>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid size={{ xs: 6 }}>
             <InputTextControl
               name="firstName"
               label="First Name"
@@ -82,7 +82,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
               required
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid size={{ xs: 6 }}>
             <InputTextControl
               name="lastName"
               label="Last Name"
@@ -92,7 +92,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <InputTextControl
               name="email"
               label="Email"
@@ -104,7 +104,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <InputPasswordControl
               label="Password"
               name="password"
@@ -115,7 +115,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <InputPasswordControl
               label="Confirm Password"
               name="confirmPassword"
@@ -127,7 +127,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Controller
               name="country"
               control={control}
@@ -145,7 +145,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <DatePickerControl
               label="Birth Date"
               control={control}
@@ -156,7 +156,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <InputTextControl
               name="profilePic"
               label="Image URL"
@@ -165,8 +165,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
           </Grid>
 
           <Grid
-            item
-            xs={12}
+            size={{ xs: 12 }}
             display="inline-flex"
             flexDirection="column"
             gap={2}
@@ -179,7 +178,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
               buttonText="Sign up"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <Typography align="center">
               Do you already have an account?
               <Link

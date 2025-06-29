@@ -8,20 +8,14 @@ import {
   setAuthError,
 } from '../actions/userActions';
 import type { ApiResponse } from '../../models/ApiResponse';
-import type { Comment } from '../../models/Comment';
+import type { AuthData } from '../../models/AuthData';
 
 const defaultUser: User = {
-  _id: '',
-  firstName: '',
-  lastName: '',
+  id: '',
+  username: '',
   email: '',
-  profilePic: '',
-  country: '',
-  birthDate: '',
-  comments: [] as Comment[],
-  favouritesCities: [],
-  favouriteActivities: [],
-  favouriteItineraries: [],
+  roles: [],
+  avtarUrl: '',
 };
 
 interface UserState {
@@ -38,11 +32,11 @@ const initialState: UserState = {
 
 const handleAuthenticationSuccess = (
   _state: UserState,
-  payload: ApiResponse<User>
+  payload: ApiResponse<AuthData>
 ) => {
   return {
     authError: false,
-    user: payload.data ?? defaultUser,
+    user: payload.data?.user ?? defaultUser,
     isLogged: true,
   };
 };
@@ -56,6 +50,11 @@ const userReducer = createReducer(initialState, (builder) => {
     .addCase(login.fulfilled, (state, action) =>
       handleAuthenticationSuccess(state, action.payload)
     )
+    .addCase(login.rejected, (state) => {
+      state.authError = true;
+      state.isLogged = false;
+      state.user = defaultUser;
+    })
     .addCase(register.fulfilled, (state, action) =>
       handleAuthenticationSuccess(state, action.payload)
     )

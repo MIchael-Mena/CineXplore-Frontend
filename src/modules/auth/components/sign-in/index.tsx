@@ -6,7 +6,7 @@ import { InputTextControl } from '../../../../components/common/input-text-contr
 import { rules } from '../../../../models/rulesValidation';
 import { login } from '../../../../store/actions/userActions';
 import { useAppDispatch } from '../../../../store/hooks';
-import { LoginForm } from '../../../../models/LoginForm';
+import type { LoginForm } from '../../../../models/LoginForm';
 import { ButtonForm } from '../button-form';
 import { useState } from 'react';
 
@@ -36,13 +36,13 @@ export const SignIn = ({ onSignUpClick, onClose }: SignInProps) => {
       sx={{ maxWidth: 400, minWidth: 350, p: { xs: 2, md: 4 } }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Typography variant="h4" align="center" gutterBottom>
             Welcome!
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <InputTextControl
             name="email"
             label="Email"
@@ -56,7 +56,7 @@ export const SignIn = ({ onSignUpClick, onClose }: SignInProps) => {
           />
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <InputPasswordControl
             useIcon
             required
@@ -68,7 +68,13 @@ export const SignIn = ({ onSignUpClick, onClose }: SignInProps) => {
           />
         </Grid>
 
-        <Grid item xs={12} display="flex" flexDirection="column" gap={2} mt={2}>
+        <Grid
+          size={{ xs: 12 }}
+          display="flex"
+          flexDirection="column"
+          gap={2}
+          mt={2}
+        >
           <ButtonForm
             onSubmit={(form: LoginForm) => dispatch(login(form)).unwrap()}
             payloadOfSubmit={payloadOfSubmit}
@@ -77,7 +83,7 @@ export const SignIn = ({ onSignUpClick, onClose }: SignInProps) => {
           />
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Typography align="center">
             You do not have an account?
             <Link onClick={onSignUpClick} sx={{ cursor: 'pointer', ml: 1 }}>

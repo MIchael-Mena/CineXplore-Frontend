@@ -1,5 +1,6 @@
 import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import AuthAccesssModal from '../modules/auth/components/auth-access-modal';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const HomePage = () => {
       >
         View More
       </Button>
+      <AuthAccesssModal />
     </Container>
   );
 };
