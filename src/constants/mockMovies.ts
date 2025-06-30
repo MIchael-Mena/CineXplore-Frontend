@@ -1,8 +1,8 @@
-import type { Movie } from '../modules/movies/models/Movie';
+import type { MovieRequest } from '../modules/movies/models/Movie';
 
-const MockMovies: Movie[] = [
+const MockMovies: MovieRequest[] = [
   {
-    id: 1,
+    movieId: 1,
     title: 'El Origen',
     coverUrl:
       'https://m.media-amazon.com/images/M/MV5BZDYwMDU0NTktMjg1MC00ZWNiLWE2ZTQtYzczZWMxZGM3OTJmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
@@ -15,7 +15,7 @@ const MockMovies: Movie[] = [
     actorIds: [1, 2, 3],
   },
   {
-    id: 2,
+    movieId: 2,
     title: 'Matrix',
     coverUrl:
       'https://m.media-amazon.com/images/M/MV5BNGE1YzI4NzMtZTUxNi00Y2I5LTg2MmQtODE0NThmYTFmMDk0XkEyXkFqcGc@._V1_.jpg',
@@ -28,7 +28,7 @@ const MockMovies: Movie[] = [
     actorIds: [4, 5, 6],
   },
   {
-    id: 3,
+    movieId: 3,
     title: 'Interstellar',
     coverUrl:
       'https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_.jpg',
@@ -41,7 +41,7 @@ const MockMovies: Movie[] = [
     actorIds: [7, 8, 9],
   },
   {
-    id: 4,
+    movieId: 4,
     title: 'La La Land',
     coverUrl:
       'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_FMjpg_UX1000_.jpg',
@@ -54,7 +54,7 @@ const MockMovies: Movie[] = [
     actorIds: [10, 11],
   },
   {
-    id: 5,
+    movieId: 5,
     title: 'El Padrino',
     coverUrl:
       'https://es.web.img3.acsta.net/pictures/18/06/12/12/12/0117051.jpg?coixp=49&coiyp=27',
@@ -66,7 +66,7 @@ const MockMovies: Movie[] = [
     actorIds: [12, 13, 14],
   },
   {
-    id: 6,
+    movieId: 6,
     title: 'Forrest Gump',
     coverUrl:
       'https://m.media-amazon.com/images/S/aplus-media/sota/c5e85222-67c5-4e9b-abed-1d26df5b74f6.__CR262,754,2246,1389_PT0_SX970_V1___.jpg',
@@ -79,7 +79,7 @@ const MockMovies: Movie[] = [
     actorIds: [15, 16],
   },
   {
-    id: 7,
+    movieId: 7,
     title: 'Pulp Fiction',
     coverUrl:
       'https://i.pinimg.com/736x/88/e1/d3/88e1d3b3f60a407960244d1c120490a3.jpg',
@@ -91,7 +91,7 @@ const MockMovies: Movie[] = [
     actorIds: [17, 18, 19],
   },
   {
-    id: 8,
+    movieId: 8,
     title: 'El Señor de los Anillos: La Comunidad del Anillo',
     coverUrl:
       'https://es.web.img3.acsta.net/medias/nmedia/18/89/67/45/20061512.jpg',
@@ -104,7 +104,7 @@ const MockMovies: Movie[] = [
     actorIds: [20, 21, 22],
   },
   {
-    id: 9,
+    movieId: 9,
     title: 'Gladiador',
     coverUrl:
       'https://cdn.sincroguia.tv/uploads/programs/g/l/a/gladiator-el-gladiador-poster-152_SPA-87_V.jpg',

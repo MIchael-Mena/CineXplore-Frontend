@@ -1,10 +1,23 @@
 export interface Member {
-  id: number;
+  id?: number;
   fullName: string;
-  birthDate: Date; // ISO string
+  birthDate: string | null; // ISO string
 }
 
-export interface MemberRequest {
+/* export interface MemberRequest {
   fullName: string;
-  birthDate: string; // ISO string
+  birthDate: string | null; // ISO string
+}
+ */
+
+export interface Actor {
+  actorId?: number;
+  fullName: string;
+  birthDate: string | null; // ISO string
+}
+
+export interface Director {
+  directorId?: number;
+  fullName: string;
+  birthDate: string | null; // ISO string
 }

@@ -3,6 +3,7 @@ import { Button, CircularProgress } from '@mui/material';
 import { useApiService } from '../../../../hooks/useApiService';
 import { handleSnackbar } from '../../../../utils/apiUtils';
 import type { AuthData } from '../../../../models/AuthData';
+import { useNavigate } from 'react-router-dom';
 
 interface ButtonFormProps<T> {
   onSubmit: (form: T) => Promise<ApiResponse<AuthData>>;
@@ -17,6 +18,7 @@ export const ButtonForm = <T extends object>({
   buttonText,
   payloadOfSubmit: payload,
 }: ButtonFormProps<T>) => {
+  const navigate = useNavigate();
   const { loading } = useApiService<ApiResponse<void>, void>(
     () =>
       payload
@@ -29,8 +31,17 @@ export const ButtonForm = <T extends object>({
   const handleActionDispatch = async () => {
     await onSubmit(payload!.form)
       .then((res) => {
-        handleSnackbar(res.message, 'success');
+        let roles = res.data?.user.roles || [];
+        handleSnackbar(
+          `Welcome ${res.data?.user.username}${
+            roles.includes('ADMIN') ? ' (admin)' : ''
+          }`,
+          'success'
+        );
         onClose();
+        if (roles.includes('ADMIN')) {
+          navigate('/dashboard', { replace: true });
+        }
       })
       .catch((res: ApiResponse<AuthData>) => {
         handleSnackbar(res.message, 'error');

@@ -41,6 +41,16 @@ export const DatePickerControl = ({
             // defaultValue={} // Usarlo si se decide usar el componente como uncontrolled
             value={value}
             onChange={(date: Dayjs | null) => onChange(date)}
+            /*             onChange={(value, _context) => { version sin errro a revisar
+              // Ensure value is Dayjs or null
+              if (value === null || dayjs.isDayjs(value)) {
+                onChange(value);
+              } else if (value instanceof Date) {
+                onChange(dayjs(value));
+              } else {
+                onChange(null);
+              }
+            }} */
             // onError={(error) =>  {}} // error es un string y puede valer: 'maxDate', 'minDate', 'invalidDate'
             slotProps={{
               textField: {

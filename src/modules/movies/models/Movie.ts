@@ -4,26 +4,27 @@ interface MemberDTO {
 }
 
 export interface Movie {
-  id: number;
+  movieId: number;
   title: string;
   coverUrl?: string;
   description?: string;
   durationMin: number;
-  releaseDate: string; // ISO string
+  releaseDate: string | null; // ISO string
   averageRating: number;
   //createdAt: string;
-  actors: MemberDTO[];
-  directors: MemberDTO[];
-  genres: string[];
+  actors?: MemberDTO[];
+  directors?: MemberDTO[];
+  genres?: string[];
 }
 
 export interface MovieRequest {
+  movieId?: number; // Optional for creation
   title: string;
   coverUrl?: string;
   description?: string;
   durationMin: number;
-  releaseDate: string; // ISO string
-  directorIds: number[];
-  genreIds: number[];
-  actorIds: number[]
+  releaseDate: string | null; // ISO string
+  directorIds?: number[];
+  genreIds?: number[];
+  actorIds?: number[];
 }

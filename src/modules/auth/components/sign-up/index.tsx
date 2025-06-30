@@ -72,7 +72,7 @@ export const SignUp = ({ onSignInClick, onClose }: SignUpProps) => {
             </Typography>
           </Grid>
 
-          <Grid size={{ xs: 6 }}>
+          <Grid size={{ xs: 12 }}>
             <InputTextControl
               name="username"
               label="Username"

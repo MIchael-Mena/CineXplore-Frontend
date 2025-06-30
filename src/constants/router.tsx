@@ -6,6 +6,7 @@ import LoaderTransition from '../components/common/loader-transition';
 import HomePage from '../pages/HomePage';
 import Layout from '../components/layout/Layout';
 import Movies from '../pages/MoviesPage';
+import DashBoard from '../pages/Dashboard';
 
 const navItems: NavItem[] = [
   { name: 'Home', path: '/home' },
@@ -51,6 +52,15 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoaderTransition />}>
             <Movies />
+          </Suspense>
+        ),
+        caseSensitive: false,
+      },
+      {
+        path: '/dashboard',
+        element: (
+          <Suspense fallback={<LoaderTransition />}>
+            <DashBoard />
           </Suspense>
         ),
         caseSensitive: false,

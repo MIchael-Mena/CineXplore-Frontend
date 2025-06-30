@@ -35,7 +35,7 @@ const MoviesList = ({ movies }: { movies: Movie[] }) => {
               md: 4,
               lg: 3,
             }}
-            key={movie.id}
+            key={movie.movieId}
           >
             <CardActionArea
               onClick={() => handleOpenModal(movie)}
