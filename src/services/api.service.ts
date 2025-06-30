@@ -78,6 +78,15 @@ export class ApiService {
     return response.data;
   }
 
+  static async putData<T>(
+    endPoint: string,
+    body: object = {}
+  ): Promise<ApiResponse<T>> {
+    return this.instanceAxios.put<ApiResponse<T>>(endPoint, body).then((r) => {
+      return r.data;
+    });
+  }
+
   static patchData<T>(
     endPoint: string,
     body: object = {}

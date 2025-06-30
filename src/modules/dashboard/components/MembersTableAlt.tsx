@@ -114,7 +114,7 @@ export default function MembersTableAlt({
   const handleCancel = () => setEditIndex(null);
 
   const handleSave = async (member: Member, data: Member) => {
-    await ApiService.patchData(update(member), data);
+    await ApiService.putData(update(member), data);
     setEditIndex(null);
     setRefreshCount((c) => c + 1);
   };
